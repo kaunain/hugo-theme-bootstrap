@@ -1,0 +1,43 @@
+<!-- Footer -->
+<footer class="text-center text-lg-start">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+        <!-- Section: Links -->
+        <section class="">
+            <!--Grid row-->
+            <div class="row">
+               <!-- sidebar start -->
+                <ul class="row">
+                    <div class="col">Quick Links : </div>
+                    {{ $currentPage := . }}
+                    {{ range .Site.Menus.footer }}
+                        {{ if .HasChildren }}
+                            <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+                                <a href="#">
+                                    {{ .Pre }}
+                                    <span>{{ .Name }}</span>
+                                </a>
+                            </li>
+                            <ul class="sub-menu">
+                                {{ range .Children }}
+                                    <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                                        <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                                    </li>
+                                {{ end }}
+                            </ul>
+                        {{ else }}
+                            <li class="col">
+                                <a href="{{ .URL | relLangURL }}">
+                                    {{ .Pre }}
+                                    <span>{{ .Name }}</span>
+                                </a>
+                            </li>
+                        {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+        </section>
+        <!-- Section: Links -->
+    </div>
+</footer>
+<!-- Footer -->
