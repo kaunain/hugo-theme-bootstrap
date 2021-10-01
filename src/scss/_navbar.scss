@@ -1,33 +1,41 @@
 .navbar {
-  background-color: var(--hbs-navbar-bg);
-  color: #{$white-secondary};
+  background-color: variable('navbar');
+  color: variable('primary-text-on-navbar');
 
   a {
     &:hover,
     &:focus,
     &:active,
     &.active {
-      color: #{$white};
+      color: variable('accent-text-on-navbar');
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 8px;
     }
+  }
+
+  .btn {
+    &:hover,
+    &:focus {
+      color: variable('on-primary');
+    }
+  }
+
+  .btn-back {
+    @extend .navbar-toggler;
   }
 }
 
-.search-bar {
-  .form-control {
-    background-color: var(--hbs-background);
-    border-color: var(--hbs-background);
-    color: var(--hbs-secondary-text);
-    padding-left: 2rem;
+.navbar-toggler {
+  color: inherit;
+  border: none;
 
-    &:focus {
-      color: var(--hbs-primary-text);
-    }
+  &:focus {
+    box-shadow: none;
   }
 
-  .btn-search {
-    background-color: transparent;
-    color: var(--hbs-secondary-text);
-    z-index: 4 !important;
+  &:hover {
+    color: variable('accent-text-on-navbar');
   }
 }
 
@@ -37,15 +45,7 @@
   margin-right: 0.5rem;
 }
 
-.navbar-toggler {
-  border: none;
-
-  &:focus {
-    box-shadow: none;
-  }
-}
-
-$bgNavbarTogglerIcon: url("/images/icons/menu.png");
+$bgNavbarTogglerIcon: url('/images/icons/menu.png');
 
 .navbar-toggler-icon {
   background-image: $bgNavbarTogglerIcon;
@@ -54,29 +54,21 @@ $bgNavbarTogglerIcon: url("/images/icons/menu.png");
 .nav-link {
   color: inherit;
 
-  &:focus {
-    outline: none;
-    color: var(--hbs-accent);
-  }
-
+  &:focus,
   &:hover {
     outline: none;
-    color: var(--hbs-accent);
+    color: variable('accent');
+    text-decoration: none;
   }
 }
 
-.dropdown-menu {
-  background-color: var(--hbs-surface);
+.navbar-brand {
+  color: inherit;
+  text-decoration: none !important;
+}
 
-  .dropdown-item {
-    color: var(--hbs-on-surface);
+.navbar-settings {
+  @extend .navbar-toggler;
 
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
-      color: #fff;
-      background-color: var(--hbs-accent);
-    }
-  }
+  display: inline !important;
 }

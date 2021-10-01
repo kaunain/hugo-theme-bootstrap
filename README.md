@@ -10,9 +10,9 @@ An extreme fast, responsive and feature-rich blog theme for Hugo.
 
 ![Screenshot](https://raw.githubusercontent.com/razonyang/hugo-theme-bootstrap/master/images/screenshot.png)
 
-**Dark Mode**
+**Light Mode**
 
-![Screenshot in Dark Mode](https://raw.githubusercontent.com/razonyang/hugo-theme-bootstrap/master/images/screenshot-dark.png)
+![Screenshot in Light Mode](https://raw.githubusercontent.com/razonyang/hugo-theme-bootstrap/master/images/screenshot-light.png)
 
 ## Live Preview
 
@@ -33,6 +33,8 @@ There is also a [list of websites that use this theme](https://github.com/razony
 - Search.
 - Breadcrumb.
 - Archive.
+- Image Viewer.
+- Resizing images by adding URL query, such as `width=300px` and `height=200px`.
 - Aligning images by adding URL fragments, such as `#center`, `#floatleft` and `#floatright` represents align center, float left and float right respectively.
 - [Syntax Highlighting](#syntax-highlighting)
 - Resources Lazy Loading: `image` and `iframe`.
@@ -164,9 +166,8 @@ As the example site shown, the configuration are separated into multiple files, 
 | `math` | Boolean | `false` | Whether to enable math globally.
 | `diagram` | Boolean | `false` | Whether to enable diagram globally.
 | `mermaid` | Object | - | [Mermaid Configuration](https://mermaid-js.github.io/mermaid/#/Setup?id=configuration).
-| `logo` | String | `images/logo.webp` | Logo image.
+| `logo` | String/Boolean | `images/logo.webp` | Logo image. Disable logo by setting it to `false`.
 | `brand` | String | - | Brand text.
-| `menusPosition` | String | `right` | Menus position: `right`, `left`, `center`.
 | `description` | String | - | Site description.
 | `keywords` | String | - | Site keywords.
 | `color` | String | - | Color mode, `light`, `dark` or dynamic. Default to dynamic.
@@ -178,6 +179,7 @@ As the example site shown, the configuration are separated into multiple files, 
 | `categoryCount` | Integer/Boolean | `10` | The number of categories shown in sidebar. Turn off by setting it to `false`.
 | `tagCount` | Integer/Boolean | `10` | The number of tags shown in sidebar. Turn off by setting it to `false`.
 | `seriesCount` | Integer | `10` | The number of series shown in sidebar.
+| `taxonomyPaginate` | Integer | `10` |
 | `taxonomyPostCount` | Integer | `3` | The number of posts of taxonomy. Turn off by setting it to false.
 | `fullWidth` | Boolean | `false` | Full width.
 | `fixedHeader` | Boolean | `true` | Turn on/off fixed header.
@@ -436,6 +438,8 @@ github = "githubusername"
 
 ### Develop
 
+> Please follow the [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/) before submitting a PR.
+
 This theme relies on `npm` and `webpack` for development. The source of `js` and `scss` are placed in `src` directory.
 
 **Install dependencies**
@@ -455,8 +459,7 @@ $ npm run build
 **Preview**
 
 ```shell
-$ cd exampleSite
-$ hugo server --themesDir=../../
+$ npm run serve
 ```
 
 **Formating Code**

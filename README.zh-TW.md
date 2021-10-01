@@ -10,9 +10,9 @@
 
 ![截圖](https://raw.githubusercontent.com/razonyang/hugo-theme-bootstrap/master/images/screenshot.png)
 
-**Dark Mode**
+**Light Mode**
 
-![深色模式下的截圖](https://raw.githubusercontent.com/razonyang/hugo-theme-bootstrap/master/images/screenshot-dark.png)
+![淺色模式下的截圖](https://raw.githubusercontent.com/razonyang/hugo-theme-bootstrap/master/images/screenshot-light.png)
 
 ## 線上預覽
 
@@ -33,6 +33,8 @@
 - 搜尋
 - 麵包屑導航
 - 歸檔
+- 圖片查看器
+- 可以通過 URL 參數調整圖片大小，比如 `width=300px` 和 `height=200px`
 - 可以通過添加 URL 段實現圖片對齊，比如 `#center`，`#floatleft` 和 `#floatright` 分別表示居中、左浮動和右浮動。
 - 資源延遲載入：支援 `image` 和 `iframe` 等。
 - 打賞掛件：支持支付寶和微信。
@@ -163,9 +165,8 @@ $ hugo new -c content/zh-cn posts/newpost.md
 | `math` | Boolean | `false` | 是否開啟 `math`。
 | `diagram` | Boolean | `false` | 是否開啟 `diagram`。
 | `mermaid` | Object | - | [Mermaid 配置](https://mermaid-js.github.io/mermaid/#/Setup?id=configuration).
-| `logo` | String | `images/logo.webp` | Logo
+| `logo` | String | `images/logo.webp` | Logo。設置為 `false` 以禁用 Logo。
 | `brand` | String | - | Brand
-| `menusPosition` | String | `right` | 選單位置：`right`, `left`, `center`.
 | `description` | String | - | 站點描述
 | `keywords` | String | - | 站點關鍵詞
 | `color` | String | - | 顏色風格， `light`，`dark` 或者 dynamic（默認）。
@@ -177,6 +178,7 @@ $ hugo new -c content/zh-cn posts/newpost.md
 | `categoryCount` | Integer/Boolean | `10` | 分類數，`false` 則隱藏。
 | `tagCount` | Integer/Boolean | `10` | 標籤數，`false` 則隱藏。
 | `seriesCount` | Integer/Boolean | `10` | 專欄數，`false` 則隱藏。
+| `taxonomyPaginate` | Integer | `10` |
 | `taxonomyPostCount` | Integer | `3` | 分類的文章數，`false` 則隱藏。
 | `fullWidth` | Boolean | `false` | 是否全寬
 | `fixedHeader` | Boolean | `true` | 是否固定頭部
@@ -433,6 +435,8 @@ github = "githubusername"
 
 ### 開發
 
+> 在提交 PR 之前，請遵循[常規提交規範](https://www.conventionalcommits.org/en/v1.0.0/)。
+
 本主題依賴於 `npm` 和 `webpack` 進行開發，原始碼目錄為 `src`。
 
 **安裝依賴**
@@ -452,8 +456,7 @@ $ npm run build
 **預覽**
 
 ```shell
-$ cd exampleSite
-$ hugo server --themesDir=../../
+$ npm run serve
 ```
 
 **格式化代碼**

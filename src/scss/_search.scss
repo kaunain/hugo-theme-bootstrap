@@ -1,60 +1,48 @@
+.search-result {
+  margin-bottom: 2rem;
+}
+
+.search-result-title {
+  margin: 1rem 0 1.5rem;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
 .search-form {
   .form-control {
-    background-color: var(--hbs-surface);
-    border-color: var(--hbs-surface);
-    color: var(--hbs-secondary-text);
+    background-color: transparent;
+    border-color: variable('accent');
+    color: variable('secondary-text-on-surface');
 
     &:focus {
-      color: var(--hbs-primary-text);
+      color: variable('primary-text-on-surface');
     }
   }
 }
 
 .search-stat,
 .search-result-content {
-  color: var(--hbs-secondary-text);
+  color: variable('secondary-text-on-surface');
 }
 
 .btn-search {
-  background-color: transparent;
-  color: var(--hbs-accent);
+  background: transparent !important;
+  color: variable('accent') !important;
   z-index: 4 !important;
+  box-shadow: none !important;
 }
 
 .search-result-taxonomy {
-  margin: 0 0.25rem 0.25rem 0;
-  color: var(--hbs-secondary-text);
+  margin: 0 0.125rem 0.125rem 0;
+  color: variable('secondary-text-on-surface');
 
-  +.search-result-taxonomy::before {
-    content: "·";
-    margin-right: 0.5rem;
-  }
-}
-
-@mixin scoreContent {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 400;
-  content: "\f005\f005\f005\f005\f005";
-}
-
-.search-result-score {
-  font-size: 20px;
-  color: var(--hbs-disabled-text);
-  position: relative;
-
-  &::before {
-    @include scoreContent;
-  }
-
-  span {
-    color: var(--hbs-accent);
-    left: 0;
-    overflow: hidden;
-    position: absolute;
-
-    &::before {
-      @include scoreContent;
-    }
+  + .search-result-taxonomy::before {
+    content: '·';
+    margin-right: 0.25rem;
+    display: inline-block;
   }
 }
 
